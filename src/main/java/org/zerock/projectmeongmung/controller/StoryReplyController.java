@@ -1,4 +1,4 @@
-package org.zerock.projectmeongmung.controller.sosController;
+package org.zerock.projectmeongmung.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/soshospitallist")
-public class SosBoardController {
+public class StoryReplyController {
 
     @GetMapping({"", "/"})
     public String meongmung() {
