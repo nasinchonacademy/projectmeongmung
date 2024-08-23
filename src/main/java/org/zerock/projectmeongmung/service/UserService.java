@@ -42,4 +42,6 @@ public class UserService {
     public boolean checkDuplicateNickname(String nickname) {
         return userRepository.findByNickname(nickname).isPresent();
     }
+
+
 }

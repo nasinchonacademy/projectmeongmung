@@ -14,6 +14,7 @@ import java.security.Timestamp;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Table(name="member")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -72,6 +73,20 @@ public class User implements UserDetails {
     @ColumnDefault("0")
     private int jellypoint;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "reg_date", nullable = false, updatable = false)
+    @CreatedDate
+    private Date regDate;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "withdrawal_date")
+    private Date withdrawal_date;
+
+    @OneToMany(mappedBy = "user")
+    private Set<StoryLike> likes;
+
+
+
 
 
     @Builder
@@ -92,6 +107,7 @@ public class User implements UserDetails {
         this.term_use = term_use;
         this.jellypoint = jellypoint;
         this.personalinfo = personalinfo;
+        this.regDate = new Date();
     }
 
 
