@@ -15,14 +15,18 @@
     <link th:href="@{css/basic.css}" rel="stylesheet">
 </head>
 <body>
+
 <!-- 헤더 영역 -->
 <th:block th:replace="fragments/nav :: header"></th:block>
 
 <!-- SNB 영역 -->
 <th:block th:replace="fragments/nav :: navMenu"></th:block>
 
-<!-- 메인 컨텐츠 영역 -->
+<!--메인 컨텐츠 nav-->
+<th:block th:replace="fragments/mungSos/mungSosNav :: sosNav"></th:block>
 
+<!-- 메인 컨텐츠 영역 -->
+<th:block th:replace="fragments/reusability/boardContent :: content"></th:block>
 
 <!-- 푸터 영역 -->
 <th:block th:replace="fragments/nav :: footer"></th:block>
