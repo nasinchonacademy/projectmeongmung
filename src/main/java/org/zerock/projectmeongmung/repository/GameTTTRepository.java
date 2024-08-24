@@ -1,4 +1,4 @@
 package org.zerock.projectmeongmung.repository;
 
-public interface productIORepository {
+public interface GameTTTRepository {
 }
