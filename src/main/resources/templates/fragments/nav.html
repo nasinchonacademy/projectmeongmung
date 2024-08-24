@@ -23,11 +23,11 @@
             <li><a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a></li>
             <li><a th:href="@{/mungstory.html}">멍스토리</a></li>
             <li>
-                <a sec:authorize="isAnonymous()" th:href="@{/sos.html}" th:onclick="return checkLogin();">멍SOS</a>
+                <a sec:authorize="isAnonymous()" th:href="@{/soshospitallist}" th:onclick="return checkLogin();">멍SOS</a>
                 <a sec:authorize="isAuthenticated()" th:href="@{/soshospitallist}">멍SOS</a>
                 <ul class="submenu">
                     <li><a th:href="@{/soshospitallist}">지역별 동물병원</a></li>
-                    <li><a href="#">SOS 상담</a></li>
+                    <li><a th:href="@{/soshospitallist}">SOS 상담</a></li>
                 </ul>
             </li>
             <li>
