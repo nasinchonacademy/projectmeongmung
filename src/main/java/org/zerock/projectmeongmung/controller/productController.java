@@ -2,8 +2,11 @@ package org.zerock.projectmeongmung.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-public class SosBoardController {
-
+@Controller
+public class productController {
+    @GetMapping("/productMain")
+    public String login() {
+        return "product/productMain";
+    }
 }
