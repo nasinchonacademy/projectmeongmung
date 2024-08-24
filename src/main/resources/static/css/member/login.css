@@ -53,6 +53,9 @@ input {
 .form-group p {
     font-size: 0.8rem;
     color: #eaeaea;
+    margin-bottom: 15px;
+    padding: 10px;
+    color: #a8a8a8;
 }
 
 .login-btn {

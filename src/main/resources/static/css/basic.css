@@ -8,10 +8,10 @@
 
 /* Header */
 .header {
-    /*width: 100%;*/
+    width: 100%;
     /*max-width: 1600px;*/
     min-width: 1000px;
-    text-align: center;
+    /*text-align: center;*/
     line-height: 120px;
     font-size: 24px;
     color: #555;
