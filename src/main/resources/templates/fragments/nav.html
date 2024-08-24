@@ -18,15 +18,15 @@
             <li><a sec:authorize="isAuthenticated()" th:href="@{/profile}">
                 <img id="profilePic" th:src="@{/image/main/example.png}" alt="profile 로고" class="profile"><br>회원 닉네임</a>
             </li>
-            <li><a sec:authorize="isAuthenticated()" th:href="@{/profile}">프로필 수정</a></li>
             <li><a sec:authorize="isAuthenticated()" th:href="@{/mypage}">마이 페이지</a></li>
+            <li><a sec:authorize="isAuthenticated()" th:href="@{/profile}">프로필 수정</a></li>
             <li><a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a></li>
             <li><a th:href="@{/mungstory.html}">멍스토리</a></li>
             <li>
                 <a sec:authorize="isAnonymous()" th:href="@{/sos.html}" th:onclick="return checkLogin();">멍SOS</a>
-                <a sec:authorize="isAuthenticated()" th:href="@{/sos.html}">멍SOS</a>
+                <a sec:authorize="isAuthenticated()" th:href="@{/soshospitallist}">멍SOS</a>
                 <ul class="submenu">
-                    <li><a href="#">지역별 동물병원</a></li>
+                    <li><a th:href="@{/soshospitallist}">지역별 동물병원</a></li>
                     <li><a href="#">SOS 상담</a></li>
                 </ul>
             </li>
