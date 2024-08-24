@@ -12,5 +12,4 @@ public class MeongmungController {
     public String meongmung() {
         return "meongmung"; // meongmung.html 템플릿을 반환
     }
-
 }
