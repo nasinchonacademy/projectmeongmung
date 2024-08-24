@@ -9,6 +9,9 @@ import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
 
 
+
+
+
 /**
  * QUser is a Querydsl query type for User
  */
@@ -33,6 +36,11 @@ public class QUser extends EntityPathBase<User> {
 
     public final NumberPath<Integer> jellypoint = createNumber("jellypoint", Integer.class);
 
+
+
+    public final SetPath<StoryLike, QStoryLike> likes = this.<StoryLike, QStoryLike>createSet("likes", StoryLike.class, QStoryLike.class, PathInits.DIRECT2);
+
+
     public final BooleanPath locservice = createBoolean("locservice");
 
     public final BooleanPath marketsns = createBoolean("marketsns");
@@ -47,9 +55,16 @@ public class QUser extends EntityPathBase<User> {
 
     public final StringPath profilePhoto = createString("profilePhoto");
 
+
+    public final DateTimePath<java.util.Date> regDate = createDateTime("regDate", java.util.Date.class);
+
     public final BooleanPath term_use = createBoolean("term_use");
 
     public final StringPath uid = createString("uid");
+
+
+
+    public final DateTimePath<java.util.Date> withdrawal_date = createDateTime("withdrawal_date", java.util.Date.class);
 
     public QUser(String variable) {
         super(User.class, forVariable(variable));

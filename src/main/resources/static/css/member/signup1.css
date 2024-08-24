@@ -19,7 +19,7 @@ h2 {
     flex-direction: column;
     align-items: center;
     min-width: 1000px;
-    margin-bottom: 100px;
+    margin-bottom: -44.5px;
 }
 .form-group {
     text-align: left;
@@ -67,19 +67,18 @@ h2 {
     font-size: 16px;
     text-decoration: none;
 }
-.next-btn {
+.next-btn  {
     background-color: #57a885;
+    border: 2px solid #57a885;
     color: white;
     padding: 10px;
-    border: none;
     border-radius: 15px;
     cursor: pointer;
-    width: 150px;
+    width:  275px;
     font-size: 16px;
     float: right;
-    margin-top: 130px;
-    margin-bottom: -60px;
-    margin-left: 60%;
+    margin-top: 30px;
+    margin-left: 280px;
 
 }
 .signup-container input[type="submit"]:hover {
@@ -87,13 +86,16 @@ h2 {
 }
 
 .back-btn {
-    float: left;
-    margin-right: 20%;
-    width: 100px;
-    height: 100px;
-    border: none;
+    background-color: #fffefe;
+    color: #1ae31a;
+    border: 1px solid #32b16c;
+    padding: 10px;
+    border-radius: 15px;
     cursor: pointer;
-    margin-bottom:200px;
+    width: 275px;
+    font-size: 16px;
+    margin-left: 890px;
+    margin-bottom: 100px;
 }
 
 .btnWrap{
