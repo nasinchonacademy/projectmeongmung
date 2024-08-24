@@ -5,9 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller
-@RequestMapping("/soshospitallist")
 public class SosBoardController {
+
 
     // 기본적인 soshospitallist.html 템플릿을 반환
     @GetMapping
@@ -35,3 +34,5 @@ public class SosBoardController {
         return "mungSosHtml/sosqnaboard";
     }
 }
+
+
