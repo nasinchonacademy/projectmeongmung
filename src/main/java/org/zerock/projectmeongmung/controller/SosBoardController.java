@@ -28,4 +28,10 @@ public class SosBoardController {
         // 필요한 데이터를 모델에 추가
         return "fragments/mungSos/soshospitallistContent :: content2";
     }
+
+    @GetMapping("/sosboard")
+    public String sosboard(Model model) {
+        // 필요한 데이터를 모델에 추가
+        return "mungSosHtml/sosqnaboard";
+    }
 }
