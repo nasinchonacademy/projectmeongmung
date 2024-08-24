@@ -4,11 +4,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.zerock.projectmeongmung.dto.AddUserRequest;
+import org.zerock.projectmeongmung.entity.User;
+import org.zerock.projectmeongmung.service.UserDetailService;
 import org.zerock.projectmeongmung.service.UserService;
 
 @RequiredArgsConstructor
@@ -16,6 +20,7 @@ import org.zerock.projectmeongmung.service.UserService;
 public class UserApiController {
 
     private final UserService userService;
+    private final UserDetailService userDetailService;
 
     @PostMapping("/signup1")
     public String handleSignup1(AddUserRequest request, HttpSession session) {
@@ -63,5 +68,6 @@ public class UserApiController {
     public boolean checkDuplicateNickname(@RequestParam("nickname") String nickname) {
         return userService.checkDuplicateNickname(nickname);
     }
+
 
 }
