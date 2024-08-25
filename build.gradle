@@ -57,6 +57,8 @@ dependencies {
     // api 를 읽기 위한 json으로 파일 변환을 하기 위한, csv파일을 읽기 위한 의존성
     implementation 'org.apache.commons:commons-csv:1.10.0'
 
+    implementation 'org.locationtech.proj4j:proj4j:1.1.0'
+
 }
 
 /**

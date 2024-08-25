@@ -35,5 +35,3 @@ public class SosBoardController {
         return "mungSosHtml/sosqnaboard";
     }
 }
-
-
