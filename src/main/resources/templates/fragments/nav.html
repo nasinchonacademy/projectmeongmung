@@ -27,13 +27,13 @@
                 <a sec:authorize="isAuthenticated()" th:href="@{/soshospitallist}">멍SOS</a>
                 <ul class="submenu">
                     <li><a th:href="@{/soshospitallist}">지역별 동물병원</a></li>
-                    <li><a th:href="@{/soshospitallist}">SOS 상담</a></li>
+                    <li><a th:href="@{/soshospitallist(isRadio2Selected=true)}">SOS 상담</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#">리워드</a>
                 <ul class="submenu">
-                    <li><a href="#">젤리 퀘스트</a></li>
+                    <li><a th:href="@{/game_list}">젤리 퀘스트</a></li>
                     <li><a th:href="@{/productMain}">멍뭉쇼핑</a></li>
                 </ul>
             </li>
