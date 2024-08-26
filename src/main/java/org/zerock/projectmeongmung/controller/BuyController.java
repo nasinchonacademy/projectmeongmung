@@ -10,9 +10,4 @@ public class BuyController {
     public String getOderList(Model model){
         return "shopping/get_order_list";
     }
-
-    @GetMapping("payment")
-    public String getPayment(Model model){
-        return "shopping/payment";
-    }
 }
