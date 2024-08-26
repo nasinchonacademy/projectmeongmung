@@ -70,7 +70,7 @@
                         <div>
                             <form onsubmit="searchPlaces(); return false;">
                                 키워드 : <input type="text" placeholder="검색어를 입력하세요" id="keyword" size="15">
-                                <button type="submit">검색하기</button>
+                                <button type="button" onclick="searchPlaces()">검색하기</button>
                             </form>
                         </div>
                     </div>
@@ -79,44 +79,66 @@
                     <div id="pagination"></div>
                 </div>
             </div>
+
             <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=66dcbcfcfefe76b698e9151d6ae07293"></script>
             <script>
-                // 페이지 로드 시 CSV 데이터로 마커를 표시
+                var map;
+                var markers = [];
+
                 document.addEventListener('DOMContentLoaded', function() {
+                    // DOMContentLoaded 이벤트가 발생하면 loadMarkersFromCsv 함수를 호출
                     loadMarkersFromCsv();
                 });
 
                 function loadMarkersFromCsv() {
-                    // AJAX 요청으로 Spring Boot에서 제공하는 CSV 데이터를 가져옴
+                    // AJAX 요청으로 CSV 데이터를 가져옴
                     fetch('/read-csv')
-                        .then(response => response.json())
-                        .then(data => {
-                            displayMarkers(data);
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.json();
                         })
-                        .catch(error => console.error('Error fetching CSV data:', error));
+                        .then(data => {
+                            initializeMap(data);
+                        })
+                        .catch(error => {
+                            console.error('Error fetching CSV data:', error);
+                            alert('데이터를 불러오는데 문제가 발생했습니다. 다시 시도해주세요.');
+                        });
                 }
 
-                function displayMarkers(places) {
-                    var mapContainer = document.getElementById('map'),
-                        mapOption = {
-                            center: new kakao.maps.LatLng(37.566826, 126.9786567),
-                            level: 3
-                        };
+                function initializeMap(places) {
+                    try {
+                        var mapContainer = document.getElementById('map'),
+                            mapOption = {
+                                center: new kakao.maps.LatLng(37.566826, 126.9786567),
+                                level: 3
+                            };
 
-                    var map = new kakao.maps.Map(mapContainer, mapOption);
-                    var bounds = new kakao.maps.LatLngBounds();
+                        map = new kakao.maps.Map(mapContainer, mapOption);
 
-                    places.forEach((place, index) => {
-                        var placePosition = new kakao.maps.LatLng(place.lat, place.lng),
-                            marker = addMarker(map, placePosition, index, place.title);
+                        // 초기 로드 시 placesList 비우기
+                        var listEl = document.getElementById('placesList');
+                        listEl.innerHTML = '';
 
-                        bounds.extend(placePosition);
-                    });
+                        var bounds = new kakao.maps.LatLngBounds();
 
-                    map.setBounds(bounds);
+                        places.forEach((place, index) => {
+                            var placePosition = new kakao.maps.LatLng(place.lat, place.lng),
+                                marker = addMarker(placePosition, index, place.title);
+
+                            bounds.extend(placePosition);
+                        });
+
+                        map.setBounds(bounds);
+                    } catch (error) {
+                        console.error('Error initializing map:', error);
+                        alert('지도를 초기화하는데 문제가 발생했습니다.');
+                    }
                 }
 
-                function addMarker(map, position, idx, title) {
+                function addMarker(position, idx, title) {
                     var marker = new kakao.maps.Marker({
                         position: position,
                         map: map
@@ -134,7 +156,51 @@
                         infowindow.close();
                     });
 
+                    markers.push(marker);
                     return marker;
+                }
+
+                function searchPlaces() {
+                    var keyword = document.getElementById('keyword').value.toLowerCase();
+
+                    if (keyword.trim() !== '') {
+                        fetch('/read-csv')
+                            .then(response => response.json())
+                            .then(data => {
+                                var filteredPlaces = data.filter(place => place.title.toLowerCase().includes(keyword));
+                                updateMarkers(filteredPlaces);  // 필터링된 마커만 표시
+                            })
+                            .catch(error => console.error('Error fetching CSV data:', error));
+                    } else {
+                        alert('검색어를 입력하세요.');
+                    }
+                }
+
+                function updateMarkers(places) {
+                    markers.forEach(marker => marker.setMap(null));
+                    markers = [];
+
+                    var bounds = new kakao.maps.LatLngBounds();
+                    var listEl = document.getElementById('placesList');
+                    listEl.innerHTML = '';  // 목록 초기화
+
+                    places.forEach((place, index) => {
+                        var placePosition = new kakao.maps.LatLng(place.lat, place.lng),
+                            marker = addMarker(placePosition, index, place.title);
+
+                        bounds.extend(placePosition);
+
+                        var itemEl = document.createElement('li');
+                        itemEl.textContent = place.title;
+                        listEl.appendChild(itemEl);
+
+                        itemEl.onclick = function() {
+                            map.panTo(placePosition);
+                            kakao.maps.event.trigger(marker, 'mouseover');
+                        };
+                    });
+
+                    map.setBounds(bounds);
                 }
             </script>
         </div>
@@ -234,6 +300,9 @@
                     <td><a href="#" class="vatreply">수의사 답변 확인하기</a></td>
                 </tr>
             </table>
+        </div>
+        <div class="qna_write">
+            <a th:href="@{/soshospitallist/soswirte}">글쓰기</a>
         </div>
     </div>
 </main>
