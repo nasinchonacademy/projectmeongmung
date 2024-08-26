@@ -19,7 +19,7 @@
                 <img id="profilePic" th:src="@{/image/main/example.png}" alt="profile 로고" class="profile"><br>회원 닉네임</a>
             </li>
             <li><a sec:authorize="isAuthenticated()" th:href="@{/mypage}">마이 페이지</a></li>
-            <li><a sec:authorize="isAuthenticated()" th:href="@{/profile}">프로필 수정</a></li>
+            <li><a sec:authorize="isAuthenticated()" th:href="@{/mypageedit}">프로필 수정</a></li>
             <li><a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a></li>
             <li><a th:href="@{/mungstory}">멍스토리</a></li>
             <li>
@@ -32,17 +32,18 @@
                     <li><a sec:authorize="isAuthenticated()" th:href="@{/soshospitallist(isRadio2Selected=true)}">SOS 상담</a></li>
                 </ul>
             </li>
-            <li>
-                <a sec:authorize="isAnonymous()" href="#" th:onclick="return checkLogin();">리워드</a>
-                <a sec:authorize="isAuthenticated()" href="#">리워드</a>
-                <ul class="submenu">
-                    <li><a sec:authorize="isAnonymous()" th:href="@{/game_list}" th:onclick="return checkLogin();">젤리 퀘스트</a></li>
-                    <li><a sec:authorize="isAuthenticated()" th:href="@{/game_list}">젤리 퀘스트</a></li>
-                    <li><a sec:authorize="isAnonymous()" th:href="@{/productMain}" th:onclick="return checkLogin();">멍뭉쇼핑</a></li>
-                    <li><a sec:authorize="isAuthenticated()" th:href="@{/productMain}">멍뭉쇼핑</a></li>
-                </ul>
-            </li>
-        </div>
+
+                <li>
+                    <a sec:authorize="isAnonymous()" href="#" th:onclick="return checkLogin();">리워드</a>
+                    <a sec:authorize="isAuthenticated()" href="#">리워드</a>
+                    <ul class="submenu">
+                        <li><a sec:authorize="isAnonymous()" th:href="@{/game_list}" th:onclick="return checkLogin();">젤리 퀘스트</a></li>
+                        <li><a sec:authorize="isAuthenticated()" th:href="@{/game_list}">젤리 퀘스트</a></li>
+                        <li><a sec:authorize="isAnonymous()" th:href="@{/productMain}" th:onclick="return checkLogin();">멍뭉쇼핑</a></li>
+                        <li><a sec:authorize="isAuthenticated()" th:href="@{/productMain}">멍뭉쇼핑</a></li>
+                    </ul>
+                </li>
+            </div>
     </ul>
 </nav>
 
