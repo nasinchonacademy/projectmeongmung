@@ -34,4 +34,10 @@ public class SosBoardController {
         // 필요한 데이터를 모델에 추가
         return "mungSosHtml/sosqnaboard";
     }
+
+    @GetMapping("/soswirte")
+    public String soswirte(Model model) {
+        // 필요한 데이터를 모델에 추가
+        return "mungSosHtml/sosqnawirte";
+    }
 }
