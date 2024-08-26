@@ -35,9 +35,6 @@ public class MyPageController {
         int jelly = user.getJellypoint();
         model.addAttribute("jelly", jelly);
 
-        List<MungStory> writtenStories = myPageService.getWrittenStories(user);
-        model.addAttribute("writtenStories", writtenStories);
-
         return "mypage/mypage";
     }
 
