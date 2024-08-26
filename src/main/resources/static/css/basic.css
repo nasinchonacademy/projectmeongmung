@@ -4,6 +4,7 @@
     padding: 0;
     box-sizing: border-box; /* 요소 크기를 보다 정확하게 설정 */
     font-family: 'Noto Sans KR', sans-serif; /* 깔끔한 폰트 설정 */
+    user-select: none;
 }
 
 /* Header */
@@ -89,6 +90,7 @@ li {
     font-size: 16px;
     font-weight: bold;
     line-height: 40px;
+    user-select: none;
 }
 
 .menu .menuWrap a:hover {
