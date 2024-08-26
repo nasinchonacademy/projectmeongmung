@@ -60,6 +60,7 @@ public class MungStory {
     @OneToMany(mappedBy = "storySeq")  // 여기서 mappedBy를 storySeq로 수정
     private Set<StoryLike> likes;
 
+
     @Builder
     public MungStory(String story_title, String story_content, int story_likecount, String story_picture, String story_viewcount, String story_category) {
         this.story_title = story_title;
@@ -68,6 +69,14 @@ public class MungStory {
         this.story_picture = story_picture;
         this.story_viewcount = story_viewcount;
         this.story_category = story_category;
+    }
+
+    public String getStory_picture() {
+        return story_picture;
+    }
+
+    public void setStoryPicture(String story_picture) {
+        this.story_picture = story_picture;
     }
 
 
