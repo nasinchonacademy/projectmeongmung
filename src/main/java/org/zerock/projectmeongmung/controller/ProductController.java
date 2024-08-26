@@ -31,5 +31,10 @@ public class ProductController {
         productRepositrory.save(product);
         return "product/productMain";
     }
+
+//    @GetMapping("/payment")
+//    public String payment() {
+//        return "shopping/payment";
+//    }
 }
 
