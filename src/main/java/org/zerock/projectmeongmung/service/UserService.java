@@ -43,20 +43,5 @@ public class UserService {
         return userRepository.findByNickname(nickname).isPresent();
     }
 
-    public void updateUserInfo(User existingUser, User updatedUserData) {
-        // 기존 사용자 정보를 새로운 데이터로 업데이트
-        User updatedUser = User.builder()
-                .uid(existingUser.getUid())  // UID는 변경되지 않도록 기존 값을 유지
-                .nickname(updatedUserData.getNickname())
-                .dogname(updatedUserData.getDogname())
-                .profilePhoto(updatedUserData.getProfilePhoto())
-                .dogbirthday(updatedUserData.getDogbirthday())
-                .dogbreed(updatedUserData.getDogbreed())
-                .build();
-
-        userRepository.save(updatedUser);
-
-    }
-
 
 }
