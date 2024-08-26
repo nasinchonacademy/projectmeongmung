@@ -1,19 +1,20 @@
 <div class="container">
   <div class="header_point">
     <div class="points">
-      보유 젤리: <span th:text="${jelly}">500</span> 개
-      <button>주문내역 확인하기</button>
+      <a type="button" class="button_getjellylist">보유 젤리: <span th:text="${jelly}+ ' 개  &gt;'">500</span> </a>
+      <button class="button_orderlist">주문내역 확인하기  &gt;</button>
     </div>
   </div>
 
   <div class="liked_story">
     <h2>좋아요 누른 게시물</h2>
-    <ul>
+    <ul th:if="${likedStories != null}">
       <li th:each="story : ${likedStories}" class="liked_content">
         <h3 th:text="${story.story_title}"></h3>
         <p th:text="${story.story_content}"></p>
         <img th:src="${story.story_picture ?: '/image/tool/profilelogo.PNG'}" >
       </li>
+      <li th:if="${#lists.isEmpty(likedStories)}">좋아요 한 게시물이 없습니다.</li>
     </ul>
   </div>
   <div class="written_stories">
