@@ -15,4 +15,10 @@ public class BuyController {
     public String getPayment(Model model){
         return "shopping/payment";
     }
+
+    @GetMapping("/payment_complete")
+    public String getPaymentComplete(Model model){
+        return "shopping/payment_complete";
+    }
+
 }
