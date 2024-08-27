@@ -8,7 +8,6 @@
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     background-color: #6BC7A0;
-
     width: 200px;
     height: 60px;
     padding: 17px;
@@ -39,14 +38,17 @@
 
 .btn-group>.btn-group:not(:first-child), .btn-group>:not(.btn-check:first-child)+.btn {
     margin-left: calc(var(--bs-border-width)* 3);
+
 }
 
 .btn-group>:not(.btn-check)+.btn label:visited{
     color : white;
+
 }
 
 .btn-group>.btn:not(:last-child):not(.dropdown-toggle) label:visited{
     color : white;
+
 }
 
 .btn {
@@ -56,9 +58,11 @@
     border-radius: 50px;
     font-weight: 1000;
     font-size: 20px;
+
 }
 
 .btn-outline-light {
     color: #f8f9fa;
     border-color: #6BC7A0;
+
 }

@@ -112,4 +112,10 @@ public class MyPageController {
         return  fileName;
     }
 
+    // 사용자 정보 수정 페이지를 표시하는 메서드
+    @GetMapping("/mypagejellylist")
+    public String showjellylistPage(Model model,Authentication authentication) {
+        return "mypage/mypagejellylist";
+    }
+
 }

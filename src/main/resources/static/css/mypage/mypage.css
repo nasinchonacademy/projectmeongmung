@@ -1,4 +1,12 @@
 
+
+.header_point {
+    margin: 0 auto;
+    width: 400px;
+    height: 80px;
+    display: block;
+    align-items: center;
+}
 .container {
     margin: 0 auto;
     align-items: center;
@@ -7,32 +15,33 @@
     max-height: 1200px;
     width: 1200px;
 }
-.header_point{
-    background-color: #ace6c7;
-    margin-top: -62px;
-    width: 407px;
-    height: 80px;
-    padding-top:34px;
-    text-align: center;
-    align-items: center;
-    border-radius: 20px ;
-    z-index: -5;
-    margin-bottom: 30px;
-}
 
-.points button {
-    cursor: pointer;
-    font-size: 18px;
-    background-color: #ace6c7;
-}
 
 .button_getjellylist{
     font-size: 18px;
     color: #989898 ;
-    border-right: 1px solid black;
     padding-right: 3px;
-    border: 1px solid black;
+    text-decoration-line: none;
+    width: 170px;
+    height: 40px;
+
 }
+
+.button-background{
+    background-color: #ace6c7;
+    margin-top: -82px;
+    width: 402px;
+    height: 80px;
+    padding-top: 34px;
+    text-align: center;
+    align-items: center;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    z-index: -1;
+    pointer-events: all;
+    position: relative;
+}
+
 
 .points span {
     font-weight: bold;
@@ -40,11 +49,27 @@
     color: black;
 }
 
+.points a {
+    margin-left: 20px;
+}
+
 .button_orderlist{
     font-weight: bold;
     font-size: 18px;
+    text-decoration-line: none;
+    margin-left: 5px;
+    color: black;
 
 }
+
+.button_orderlist:hover{
+    color: initial;
+}
+
+.button_getjellylist:hover{
+    color: inherit;
+}
+
 
 .header_point button {
     border: none;
